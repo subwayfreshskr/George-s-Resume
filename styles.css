@@ -11,6 +11,7 @@ body {
 }
 
 header {
+    position: relative;
     background-color: #ad630f;
     height: 80px;
     width: 100%;
@@ -228,7 +229,51 @@ h3 {
     opacity: 1;
 }
 
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.menu {
+    display: flex;
+    list-style: none;
+}
+
 @media (max-width: 768px) {
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 2vw;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .menu {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 80px;
+        right: 2vw;
+        background-color: #ad630f;
+        width: 80%;
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+    }
+
+    .menu.show {
+        display: flex;
+    }
+
+    .menu li {
+        margin: 10px 0;
+    }
+
     .info-section {
         flex-direction: column;
         align-items: center;
@@ -279,6 +324,11 @@ h3 {
 
     .rectangle-wrapper {
         width: 100%;
+    }
+
+    .rectangle-wrapper h3 {
+        text-align: left;
+        padding-left: 10px;
     }
 
     .rectangle {
