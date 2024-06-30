@@ -41,7 +41,8 @@ header a img {
 }
 
 header a:hover {
-    text-decoration: underline;
+    text-decoration:wavy;
+    color: #ffdaa1;
 }
 
 #menu-button {
@@ -243,69 +244,141 @@ h3 {
 }
 
 @media (max-width: 768px) {
+    header {
+        height: 40px; /* 调整头部的高度 */
+    }
 
     header ul {
         display: none;
         flex-direction: column;
         position: absolute;
-        top: 60px;
-        right: 3vw;
-        background-color: #eca656;
-        width: 20%;
-        text-align: center;
-        align-items: left;
-        justify-content: left;
-        border-radius: 5px;
+        top: 40px;
+        right: 0;
+        background-color: rgba(0, 0, 0, 0.8);
+        width: 100%;
+        text-align: right;
+        padding: 0;
+        transition: max-height 0.5s ease-out; /* 添加过渡效果 */
+        overflow: hidden; /* 隐藏超出部分 */
+        max-height: 0; /* 初始最大高度 */
     }
-
+    
     header ul.show {
         display: flex;
+        max-height: 300px; /* 展开后的最大高度 */
     }
-
+    
     header li {
         margin: 10px 0;
-        padding-left: 10px;
+        padding-left: 15px;
+        font-size: 12px;
+        text-align: right;
     }
-
+    
+    /* 菜单按钮的样式 */
     #menu-button {
         display: block;
+        background-color: rgba(0, 0, 0, 0);
+        color: white;
+        border: none;
+        font-size: 24px;
+        cursor: pointer;
+        padding: 10px;
+        position: relative;
+        border-radius: 100px;
     }
+
+    /* 菜单按钮的三条横线 */
+    #menu-button .bar {
+        display: block;
+        width: 25px;
+        height: 3px;
+        margin: 5px auto;
+        background-color: white;
+        transition: all 0.3s;
+        border-radius: 100px;
+    }
+
+    /* 菜单按钮变成叉的动画效果 */
+    #menu-button.change .bar1 {
+        transform: rotate(-45deg) translate(-5px, 6px);
+        border-radius: 100px;
+    }
+
+    #menu-button.change .bar2 {
+        opacity: 0;
+        border-radius: 100px;
+    }
+
+    #menu-button.change .bar3 {
+        transform: rotate(45deg) translate(-5px, -6px);
+        border-radius: 100px;
+    }
+    
     .info-section {
-        flex-wrap: wrap;
-        align-items: left;
-        padding-bottom: 3vw;
+        flex-direction: column; /* 垂直排列 */
+        align-items: center; /* 居中对齐 */
     }
 
-   .info-section .right-block {
-        max-width: 65%;
-        text-align: left;
-        padding-left: 0;
-    }
-
-    .info-section .left-block {
-        max-width: 30%;
-        text-align: left;
+    .left-block, .right-block {
+        flex: 1; /* 垂直方向上均等分配空间 */
+        max-width: 100%; /* 最大宽度为 100% */
+        text-align: center; /* 中心对齐文本 */
         padding-left: 0;
     }
 
     .profile-pic {
-        max-width: 100%;
+        max-width: 40%; /* 适应手机屏幕 */
     }
 
     .top-text h2 {
-        font-size: 24px;
+        font-size: 30px; /* 缩小字体大小 */
+        margin-bottom: 0px;
     }
 
-    .bottom-text p {
-        font-size: 12px;
+    .bottom-text {
+        overflow: hidden; /* 隐藏超出部分 */
+        max-height: 0; /* 初始高度设置为 0，隐藏内容 */
+        transition: max-height 0.5s ease-out; /* 添加过渡效果 */
+    }
+    .toggle-button::before {
+        content: "👆"; /* 向下箭头符号 */
+    }
+    tom-text.expanded {
+        max-height: 500px; 
+    }
+    .bottom-text.expanded p {
+        font-size: 14px !important; /* 强制应用字体大小 */
+        text-align: left;
     }
 
-    .text-content p, .text-content li {
-        margin: 10px;
+    .toggle-button {
+        flex-direction: column;
+        align-items: center; 
+        justify-content: center; 
+        background-color: #ffdaa1;
+        border-radius: 50%;
+        color: white;
+        border: none;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+        margin: 10px 0; 
+        position: relative;
+    }
+    
+    .toggle-button:focus {
+        outline: none;
+    }
+
+    .bottom-text-container {
+        margin-top: 10px; /* 确保按钮在 top-text 下方 */
     }
 
     .red-block {
-        font-size: 16px;
+        font-size: 16px; /* 调整字体大小 */
+        padding: 10px;
+        
     }
 
     .rectangle {
@@ -313,7 +386,7 @@ h3 {
     }
 
     .rectangle h5 {
-        font-size: 14px;
+        font-size: 16px;
     }
 
     .rectangle p {
@@ -326,55 +399,55 @@ h3 {
         font-size: 20px;
     }
     .additional-section {
+        display: flex;
         flex-direction: column;
-        padding-top: 3vw;
+        align-items: center; /* 垂直居中对齐所有子元素 */
     }
 
-    .additional-section .left-block,
-    .additional-section .right-block {
-        width: 100%;
-        margin: 0;
+    .left-block, .right-block {
+        width: 100%; /* 使每个块在小屏幕上占据整个宽度 */
     }
-
-    .vertical-block {
-        width: 100%;
+    .left-block{
+        margin-top: 20px;
     }
+    h3{
+        font-size: 16px;
+    }
+    .rectangle-wrapper h3{
+        text-align: left;
+        font-size: 16px;
+    }
+    .text-content{
+    font-size: 14px;
+    }
+}
 
-    .text-content {
-        margin: 0;
+/* 非手机响应式下的样式 */
+@media (min-width: 769px) {
+    .toggle-button {
+        display: none; /* 隐藏展开按钮 */
     }
 }
 
 @media (max-width: 1024px) and (min-width: 768px) {
-
     .info-section {
-        flex-wrap: wrap;
-        align-items: left;
-        padding-bottom: 3vw;
+        padding: 4vw;
     }
 
-   .info-section .right-block {
-        max-width: 65%;
-        text-align: left;
-        padding-left: 0;
-    }
-
-    .info-section .left-block {
-        max-width: 30%;
-        text-align: left;
-        padding-left: 0;
+    .left-block, .right-block {
+        max-width: 90%;
     }
 
     .profile-pic {
-        max-width: 100%;
+        max-width: 70%;
     }
 
     .top-text h2 {
-        font-size: 36px;
+        font-size: 42px;
     }
 
     .bottom-text p {
-        font-size: 14px;
+        font-size: 17px;
     }
 
     .text-content p, .text-content li {
