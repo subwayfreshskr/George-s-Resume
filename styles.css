@@ -11,7 +11,6 @@ body {
 }
 
 header {
-    position: relative;
     background-color: #ad630f;
     height: 80px;
     width: 100%;
@@ -43,6 +42,20 @@ header a img {
 
 header a:hover {
     text-decoration: underline;
+}
+
+#menu-button {
+    display: none;
+    background-color: #ad630f;
+    color: white;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 10px;
+}
+
+#menu-button:focus {
+    outline: none;
 }
 
 .info-section {
@@ -229,84 +242,62 @@ h3 {
     opacity: 1;
 }
 
-.menu-toggle {
-    display: none;
-    background: none;
-    border: none;
-    color: white;
-    font-size: 24px;
-    cursor: pointer;
-}
-
-.menu {
-    display: flex;
-    list-style: none;
-}
-
 @media (max-width: 768px) {
-    header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 2vw;
-    }
 
-    .menu-toggle {
-        display: block;
-    }
-
-    .menu {
+    header ul {
         display: none;
         flex-direction: column;
         position: absolute;
-        top: 80px;
-        right: 2vw;
-        background-color: #ad630f;
-        width: 80%;
-        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+        top: 60px;
+        right: 3vw;
+        background-color: #eca656;
+        width: 20%;
+        text-align: center;
+        align-items: left;
+        justify-content: left;
+        border-radius: 5px;
     }
 
-    .menu.show {
+    header ul.show {
         display: flex;
     }
 
-    .menu li {
+    header li {
         margin: 10px 0;
+        padding-left: 10px;
     }
 
+    #menu-button {
+        display: block;
+    }
     .info-section {
-        flex-direction: column;
-        align-items: center;
-        padding: 5vw;
+        flex-wrap: wrap;
+        align-items: left;
+        padding-bottom: 3vw;
     }
 
-    .left-block, .right-block {
-        max-width: 100%;
-        text-align: center;
+   .info-section .right-block {
+        max-width: 65%;
+        text-align: left;
+        padding-left: 0;
+    }
+
+    .info-section .left-block {
+        max-width: 30%;
+        text-align: left;
         padding-left: 0;
     }
 
     .profile-pic {
-        max-width: 80%;
+        max-width: 100%;
     }
 
     .top-text h2 {
-        font-size: 36px;
+        font-size: 24px;
     }
 
     .bottom-text p {
-        font-size: 16px;
-    }
-
-    .additional-section {
-        flex-direction: column;
-        align-items: center;
-        padding: 5vw;
-    }
-
-    .additional-section .left-block, .additional-section .right-block {
-        max-width: 100%;
-        margin: 0;
+        font-size: 12px;
     }
 
     .text-content p, .text-content li {
@@ -314,21 +305,7 @@ h3 {
     }
 
     .red-block {
-        font-size: 20px;
-        padding: 8px;
-    }
-
-    .rectangles-container {
-        width: 100%;
-    }
-
-    .rectangle-wrapper {
-        width: 100%;
-    }
-
-    .rectangle-wrapper h3 {
-        text-align: left;
-        padding-left: 10px;
+        font-size: 16px;
     }
 
     .rectangle {
@@ -336,11 +313,11 @@ h3 {
     }
 
     .rectangle h5 {
-        font-size: 16px;
+        font-size: 14px;
     }
 
     .rectangle p {
-        font-size: 14px;
+        font-size: 12px;
     }
 
     .back-to-top {
@@ -348,27 +325,56 @@ h3 {
         height: 40px;
         font-size: 20px;
     }
+    .additional-section {
+        flex-direction: column;
+        padding-top: 3vw;
+    }
+
+    .additional-section .left-block,
+    .additional-section .right-block {
+        width: 100%;
+        margin: 0;
+    }
+
+    .vertical-block {
+        width: 100%;
+    }
+
+    .text-content {
+        margin: 0;
+    }
 }
 
 @media (max-width: 1024px) and (min-width: 768px) {
+
     .info-section {
-        padding: 4vw;
+        flex-wrap: wrap;
+        align-items: left;
+        padding-bottom: 3vw;
     }
 
-    .left-block, .right-block {
-        max-width: 90%;
+   .info-section .right-block {
+        max-width: 65%;
+        text-align: left;
+        padding-left: 0;
+    }
+
+    .info-section .left-block {
+        max-width: 30%;
+        text-align: left;
+        padding-left: 0;
     }
 
     .profile-pic {
-        max-width: 70%;
+        max-width: 100%;
     }
 
     .top-text h2 {
-        font-size: 42px;
+        font-size: 36px;
     }
 
     .bottom-text p {
-        font-size: 17px;
+        font-size: 14px;
     }
 
     .text-content p, .text-content li {
