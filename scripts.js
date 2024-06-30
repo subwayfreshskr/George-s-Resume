@@ -14,3 +14,8 @@ window.onscroll = function () {
 backToTopButton.onclick = function () {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 };
+
+document.getElementById('menu-button').addEventListener('click', function () {
+    var nav = document.getElementById('main-nav');
+    nav.classList.toggle('show');
+});
