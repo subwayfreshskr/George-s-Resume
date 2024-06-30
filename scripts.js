@@ -1,21 +1,40 @@
-// Get the button
-const backToTopButton = document.getElementById('back-to-top');
+document.addEventListener('DOMContentLoaded', function () {
+    const backToTopButton = document.getElementById('back-to-top');
+    const menuButton = document.getElementById('menu-button');
+    const nav = document.getElementById('main-nav');
+    const toggleBottomTextButton = document.getElementById('toggle-bottom-text');
+    const bottomText = document.querySelector('.bottom-text');
 
-// Show the button when the user scrolls down 200px from the top
-window.onscroll = function () {
-    if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-        backToTopButton.classList.add('show');
-    } else {
-        backToTopButton.classList.remove('show');
+    // 滚动事件处理函数
+    function handleScroll() {
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        backToTopButton.classList.toggle('show', scrollTop > 200);
     }
-};
 
-// When the user clicks on the button, scroll to the top of the document
-backToTopButton.onclick = function () {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-};
+    // 滚动事件监听器
+    window.addEventListener('scroll', handleScroll);
 
-document.getElementById('menu-button').addEventListener('click', function () {
-    var nav = document.getElementById('main-nav');
-    nav.classList.toggle('show');
+    // 点击“回到顶部”按钮时，平滑滚动到顶部
+    if (backToTopButton) {
+        backToTopButton.addEventListener('click', function () {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
+
+    // 点击菜单按钮时，切换导航栏的显示状态和按钮样式
+    if (menuButton && nav) {
+        menuButton.addEventListener('click', function () {
+            const isNavVisible = nav.classList.toggle('show');
+            menuButton.classList.toggle('change', isNavVisible);
+            nav.style.maxHeight = isNavVisible ? `${nav.scrollHeight}px` : '0';
+        });
+    }
+
+    // 点击“展开/收起 内容”按钮时，切换 bottom-text 的显示状态
+    if (toggleBottomTextButton && bottomText) {
+        toggleBottomTextButton.addEventListener('click', function () {
+            const isExpanded = bottomText.classList.toggle('expanded');
+            toggleBottomTextButton.classList.toggle('expanded', isExpanded);
+        });
+    }
 });
