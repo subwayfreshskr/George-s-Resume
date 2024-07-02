@@ -357,15 +357,17 @@ h3 {
     }
     
     .toggle-button::before {
-        content: "⇲";
-        color: #a9927d;
-
-        
+        content: "";
+        display: block;
+        width: 15px;
+        height: 15px;
+        background-image: url('pic/arrow.png'); 
+        background-size: contain; 
+        margin: auto;
     }
 
     .toggle-button.expanded::before {
-        content: "⇱";
-        color: #a9927d;
+        background-image: url('pic/arrow.png'); /* 展开时的图案 */
     }
 
     .toggle-button {
