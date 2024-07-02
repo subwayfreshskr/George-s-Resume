@@ -428,17 +428,18 @@ h3 {
         text-decoration: none;
     }
     
-    .rectangle-wrapper h3 {
+   .rectangle-wrapper h3 {
         text-align: left;
         font-size: 16px;
         color: #5e503f;
-        text-decoration: none !important; /* 强制去掉下划线 */
-        pointer-events: none; /* 禁用点击事件 */
+        text-decoration: none !important; 
+        pointer-events: none !important; 
     }
 
-    /* 确保 h3 不会有其他影响 */
+
     .rectangle-wrapper {
-        text-decoration: none;
+        text-decoration: none !important; 
+        pointer-events: none !important;
     }
 
     .text-content {
