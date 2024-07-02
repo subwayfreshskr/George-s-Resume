@@ -35,16 +35,6 @@ document.addEventListener('DOMContentLoaded', function () {
         toggleBottomTextButton.addEventListener('click', function () {
             const isExpanded = bottomText.classList.toggle('expanded');
             toggleBottomTextButton.classList.toggle('expanded', isExpanded);
-
-            if (isExpanded) {
-                bottomText.style.opacity = '1';
-                bottomText.style.visibility = 'visible';
-                bottomText.style.maxHeight = '500px';
-            } else {
-                bottomText.style.opacity = '0';
-                bottomText.style.visibility = 'hidden';
-                bottomText.style.maxHeight = '0';
-            }
         });
     }
 });
