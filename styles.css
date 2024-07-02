@@ -424,11 +424,15 @@ h3 {
         font-size: 16px;
     }
 
+    .rectangle-wrapper {
+        text-decoration: none;
+    }
+    
     .rectangle-wrapper h3 {
         text-align: left;
         font-size: 16px;
-        text-decoration: none; /* 去掉下划线 */
-        pointer-events: none; /* 禁用点击事件 */
+        pointer-events: none;
+        color: #5e503f;
     }
 
     .text-content {
