@@ -11,7 +11,7 @@ body {
 }
 
 header {
-    background-color: #ad630f;
+    background-color: #a9927d;
     height: 80px;
     width: 100%;
     display: flex;
@@ -42,12 +42,12 @@ header a img {
 
 header a:hover {
     text-decoration:wavy;
-    color: #ffdaa1;
+    color: #5e503f;
 }
 
 #menu-button {
     display: none;
-    background-color: #ad630f;
+    background-color: #5e503f;
     color: white;
     border: none;
     font-size: 24px;
@@ -65,7 +65,7 @@ header a:hover {
     justify-content: space-between;
     align-items: flex-start;
     padding: 3vw;
-    background-color: #ad630f;
+    background-color: #a9927d;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
 }
 
@@ -118,7 +118,7 @@ header a:hover {
 
 .vertical-block {
     padding: 10px;
-    background-color: #ad630f;
+    background-color: #5e503f;
     border-radius: 100px;
     display: flex;
     justify-content: center;
@@ -135,7 +135,7 @@ h3 {
     display: flex;
     justify-content: center;
     margin: 20px;
-    color: #ad630f;
+    color: #5e503f;
     text-align: center;
 }
 
@@ -165,7 +165,7 @@ h3 {
     flex: 0.5;
 }
 .red-block {
-    background-color: #ad630f;
+    background-color: #5e503f;
     color: white;
     padding: 10px;
     border-radius: 100px;
@@ -192,14 +192,14 @@ h3 {
 .rectangle-wrapper h3 {
     margin: 0;
     font-size: 20px;
-    color: #ad630f;
+    color: #5e503f;
     padding-bottom: 10px;
 }
 
 .rectangle {
     background-color: #ffffff;
-    color: #ad630f;
-    border: 1px solid #ad630f;
+    color: #5e503f;
+    border: 1px solid #5e503f;
     padding: 20px;
     border-radius: 10px;
     width: 100%;
@@ -220,7 +220,7 @@ h3 {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background-color: #ad630f;
+    background-color: #5e503f;
     color: white;
     border: none;
     border-radius: 50%;
@@ -236,7 +236,7 @@ h3 {
 }
 
 .back-to-top:hover {
-    background-color: #8b4a24;
+    background-color: #a9927d;
 }
 
 .back-to-top.show {
@@ -339,26 +339,40 @@ h3 {
     .bottom-text {
         overflow: hidden;
         max-height: 0;
-        transition: max-height 0.5s ease-out;
+        opacity: 0;
+        visibility: hidden;
+        transition: max-height 0.5s ease-out, opacity 0.5s ease-out, visibility 0.5s ease-out;
+        opacity: 0;
     }
-    
+
+    .bottom-text p{
+        font-size: 14px !important;
+        text-align: left;
+    }
+
     .bottom-text.expanded {
         max-height: 500px;
+        opacity: 1;
+        visibility: visible;
     }
     
     .toggle-button::before {
-        content: "👆";
+        content: "⇲";
+        color: #a9927d;
+
+        
     }
-    
+
     .toggle-button.expanded::before {
-        content: "👇";
+        content: "⇱";
+        color: #a9927d;
     }
-    
+
     .toggle-button {
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        background-color: #ffdaa1;
+        background-color: #ffffff;
         border-radius: 50%;
         color: white;
         border: none;
@@ -380,10 +394,10 @@ h3 {
         font-size: 14px !important; /* 强制应用字体大小 */
         text-align: left;
     }
+    
     .red-block {
         font-size: 16px; /* 调整字体大小 */
         padding: 10px;
-        
     }
 
     .rectangle {
@@ -403,6 +417,7 @@ h3 {
         height: 40px;
         font-size: 20px;
     }
+
     .additional-section {
         display: flex;
         flex-direction: column;
@@ -412,18 +427,22 @@ h3 {
     .left-block, .right-block {
         width: 100%; /* 使每个块在小屏幕上占据整个宽度 */
     }
-    .left-block{
+
+    .left-block {
         margin-top: 20px;
     }
-    h3{
+
+    h3 {
         font-size: 16px;
     }
-    .rectangle-wrapper h3{
+
+    .rectangle-wrapper h3 {
         text-align: left;
         font-size: 16px;
     }
-    .text-content{
-    font-size: 14px;
+
+    .text-content {
+        font-size: 14px;
     }
 }
 
