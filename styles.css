@@ -431,8 +431,14 @@ h3 {
     .rectangle-wrapper h3 {
         text-align: left;
         font-size: 16px;
-        pointer-events: none;
-        color: #5e503f;
+        color: inherit; /* 继承父元素的颜色 */
+        text-decoration: none !important; /* 强制去掉下划线 */
+        pointer-events: none; /* 禁用点击事件 */
+    }
+
+    /* 确保 h3 不会有其他影响 */
+    .rectangle-wrapper {
+        text-decoration: none;
     }
 
     .text-content {
