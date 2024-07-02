@@ -356,18 +356,16 @@ h3 {
         visibility: visible;
     }
     
-    .toggle-button::before {
-        content: "";
-        display: block;
-        width: 15px;
-        height: 15px;
-        background-image: url('pic/arrow.png'); 
-        background-size: contain; 
-        margin: auto;
+      .toggle-button::before {
+        content: "展開";
+        color: #a9927d;
+        font-size: 10px;
     }
 
     .toggle-button.expanded::before {
-        background-image: url('pic/arrow.png'); /* 展开时的图案 */
+        content: "收合";
+        color: #a9927d; /* 展开时的图案 */
+        font-size: 10px;
     }
 
     .toggle-button {
