@@ -11,8 +11,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     let currentCategory = '';
     const images = {
-        '行銷活動': ['gd/線上工作坊行程.png','gd/EDM-02.png','gd/EDM-04.png','gd/EDM-06.png',
-            'gd/EDM-08.png','gd/FB_-01.png','gd/主視覺-07.png','gd/主視覺-13.png'],
+        '行銷活動': ['gdd/線上工作坊行程.png','gdd/EDM-02.png','gdd/EDM-04.png','gdd/EDM-06.png',
+            'gdd/EDM-08.png','gdd/FB_-01.png','gdd/主視覺-07.png','gdd/主視覺-13.png'],
         '課程活動': ['pic/端午節_Banner.png'],
         '公司宣傳': ['pic/端午節_Banner.png'],
         '小圖設計': ['pic/端午節_Banner.png'],
