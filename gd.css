@@ -8,6 +8,7 @@ body {
     font-family: "Noto Sans TC", sans-serif;
     font-weight: 400;
     letter-spacing: 1px;
+    background-color: #fff8ef;
 }
 
 header {
@@ -17,10 +18,11 @@ header {
     display: flex;
     align-items: center;
     justify-content: right;
-    padding: 2vw;
+    padding: 3vw;
 }
 
 header ul {
+    background-color: #a9927d;
     display: flex;
     list-style: none;
 }
@@ -41,7 +43,7 @@ header a img {
 }
 
 header a:hover {
-    text-decoration:wavy;
+    text-decoration: wavy;
     color: #5e503f;
 }
 
@@ -86,9 +88,82 @@ header a:hover {
     opacity: 1;
 }
 
+.category-container {
+    padding: 3vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.category-box {
+    width: 30%;
+    height: 250px;
+    margin: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    border-radius: 5px;
+    cursor: pointer;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.category-box:hover {
+    transform: scale(1.1);
+}
+
+.category-box span {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 16px;
+    border-radius: 0 0 5px 5px;
+    opacity: 1;
+    transition: opacity 0.3s;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: rgba(255, 255, 255, 1);
+    padding: 10px;
+    width: 1000px;
+    height: 600px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
 @media (max-width: 768px) {
+    .modal-content {
+        width: 90%;
+        height: 80%;
+    }
+
     header {
-        height: 40px; /* 调整头部的高度 */
+        height: 40px;
     }
 
     header ul {
@@ -97,18 +172,19 @@ header a:hover {
         position: absolute;
         top: 40px;
         right: 0;
-        background-color: rgba(0, 0, 0, 0.8);
+        background-color: rgba(0, 0, 0, 0.9);
         width: 100%;
         text-align: right;
         padding: 0;
-        transition: max-height 0.5s ease-out; /* 添加过渡效果 */
-        overflow: hidden; /* 隐藏超出部分 */
-        max-height: 0; /* 初始最大高度 */
+        transition: max-height 0.5s ease-out;
+        overflow: hidden;
+        max-height: 0;
+        z-index: 1000;
     }
     
     header ul.show {
         display: flex;
-        max-height: 300px; /* 展开后的最大高度 */
+        max-height: 300px;
     }
     
     header li {
@@ -117,8 +193,7 @@ header a:hover {
         font-size: 12px;
         text-align: right;
     }
-    
-    /* 菜单按钮的样式 */
+
     #menu-button {
         display: block;
         background-color: rgba(0, 0, 0, 0);
@@ -131,7 +206,6 @@ header a:hover {
         border-radius: 100px;
     }
 
-    /* 菜单按钮的三条横线 */
     #menu-button .bar {
         display: block;
         width: 25px;
@@ -142,7 +216,6 @@ header a:hover {
         border-radius: 100px;
     }
 
-    /* 菜单按钮变成叉的动画效果 */
     #menu-button.change .bar1 {
         transform: rotate(-45deg) translate(-5px, 6px);
         border-radius: 100px;
@@ -157,15 +230,121 @@ header a:hover {
         transform: rotate(45deg) translate(-5px, -6px);
         border-radius: 100px;
     }
+
     .back-to-top {
         width: 40px;
         height: 40px;
         font-size: 20px;
     }
-}
 
-    @media (min-width: 769px) {
-        .toggle-button {
-            display: none; /* 隐藏展开按钮 */
+    .category-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 3vw;
+    }
+
+    .category-box {
+        width: calc(80% - 6vw);
+        height: 150px;
+        aspect-ratio: 1 / 1;
+        margin: 10px 0;
+        padding: 3vw;
+        box-sizing: border-box;
+    }
+
+    .category-box span {
+        font-size: 14px;
+        padding: 5px 0;
+    }
+
+    .modal-content {
+        width: 90vw;
+        height: 50vh;
+    }
+
+    @media (min-aspect-ratio: 16/9) { 
+        .modal-content {
+            height: 40vh; 
         }
     }
+
+    @media (max-aspect-ratio: 9/16) { 
+        .modal-content {
+            height: 60vh;
+        }
+    }
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    z-index: 2;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #5e503f;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.carousel {
+    position: relative;
+    text-align: center;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel img {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.carousel img.landscape {
+    max-width: 100%;
+    max-height: none;
+}
+
+.carousel img.portrait {
+    max-width: none;
+    max-height: 100%;
+}
+
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 5px;
+}
+.carousel-button:hover{
+    background-color: rgba(0, 0, 0, 1);
+}
+
+.carousel-button.prev {
+    left: 10px;
+}
+
+.carousel-button.next {
+    right: 10px;
+}
+
+@media (min-width: 769px) {
+    .toggle-button {
+        display: none;
+    }
+}
