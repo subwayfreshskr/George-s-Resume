@@ -2,27 +2,57 @@ document.addEventListener('DOMContentLoaded', function () {
     const backToTopButton = document.getElementById('back-to-top');
     const menuButton = document.getElementById('menu-button');
     const nav = document.getElementById('main-nav');
+    const modal = document.getElementById('modal');
+    const closeButton = document.querySelector('.close-button');
+    const carouselImage = document.getElementById('carousel-image');
     const prevButton = document.querySelector('.carousel-button.prev');
     const nextButton = document.querySelector('.carousel-button.next');
-    const carouselImages = document.querySelector('.carousel-images');
-    let index = 0;
+    const body = document.body;
+
+    let currentCategory = '';
+    const images = {
+        '行銷活動': ['gd/線上工作坊行程.png','gd/EDM-02.png','gd/EDM-04.png','gd/EDM-06.png',
+            'gd/EDM-08.png','gd/FB_-01.png','gd/主視覺-07.png','gd/主視覺-13.png'],
+        '課程活動': ['pic/端午節_Banner.png'],
+        '公司宣傳': ['pic/端午節_Banner.png'],
+        '小圖設計': ['pic/端午節_Banner.png'],
+        '社群推廣': ['pic/端午節_Banner.png'],
+        '個人設計': ['pic/端午節_Banner.png']
+    };
+    let currentIndex = 0;
+
+    function showModal(category) {
+        currentCategory = category;
+        currentIndex = 0;
+        updateCarouselImage();
+        modal.style.display = 'block';
+        body.classList.add('no-scroll');
+    }
+
+    function hideModal() {
+        modal.style.display = 'none';
+        body.classList.remove('no-scroll');
+    }
+
+    function updateCarouselImage() {
+        if (images[currentCategory] && images[currentCategory][currentIndex]) {
+            carouselImage.src = images[currentCategory][currentIndex];
+        }
+    }
 
     function handleScroll() {
         const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
         backToTopButton.classList.toggle('show', scrollTop > 200);
     }
 
-    // Scroll event listener
     window.addEventListener('scroll', handleScroll);
 
-    // Smooth scroll to top when back-to-top button is clicked
     if (backToTopButton) {
         backToTopButton.addEventListener('click', function () {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     }
 
-    // Toggle navigation and menu button styles when menu button is clicked
     if (menuButton && nav) {
         menuButton.addEventListener('click', function () {
             const isNavVisible = nav.classList.toggle('show');
@@ -31,25 +61,38 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Carousel functionality
-    function showSlide(newIndex) {
-        const totalSlides = document.querySelectorAll('.carousel-image').length;
-        if (newIndex >= totalSlides) {
-            index = 0;
-        } else if (newIndex < 0) {
-            index = totalSlides - 1;
-        } else {
-            index = newIndex;
+    document.querySelectorAll('.category-box').forEach(box => {
+        box.addEventListener('click', function () {
+            const category = this.innerText.trim();
+            if (images[category]) {
+                showModal(category);
+            }
+        });
+    });
+
+    closeButton.addEventListener('click', function () {
+        hideModal();
+    });
+
+    window.addEventListener('click', function (event) {
+        if (event.target == modal) {
+            hideModal();
         }
-        const offset = -index * 100;
-        carouselImages.style.transform = `translateX(${offset}%)`;
-    }
+    });
 
     prevButton.addEventListener('click', function () {
-        showSlide(index - 1);
+        const categoryImages = images[currentCategory];
+        if (categoryImages) {
+            currentIndex = (currentIndex - 1 + categoryImages.length) % categoryImages.length;
+            updateCarouselImage();
+        }
     });
 
     nextButton.addEventListener('click', function () {
-        showSlide(index + 1);
+        const categoryImages = images[currentCategory];
+        if (categoryImages) {
+            currentIndex = (currentIndex + 1) % categoryImages.length;
+            updateCarouselImage();
+        }
     });
 });
