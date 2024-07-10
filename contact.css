@@ -226,7 +226,7 @@ header a:hover {
         height: 250px; /* Adjust height to fit content */
         margin-bottom: 20px; /* Space between boxes */
         padding: 20px; /* Adjust padding as needed */
-        background: linear-gradient(-180deg, #ccb39b, #6e5d4d);
+        cursor: pointer;
     }
 
     .contact-box .contact-image {
