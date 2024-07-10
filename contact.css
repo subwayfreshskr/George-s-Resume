@@ -1,0 +1,249 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Noto Sans TC", sans-serif;
+    font-weight: 400;
+    letter-spacing: 1px;
+    background-color: #f0f0f0;
+}
+
+header {
+    background-color: #a9927d;
+    height: 80px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    padding: 2vw;
+}
+
+header ul {
+    display: flex;
+    list-style: none;
+}
+
+header li {
+    margin-right: 3vw;
+}
+
+header a {
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+header a img {
+    margin-right: 8px;
+}
+
+header a:hover {
+    text-decoration:wavy;
+    color: #5e503f;
+}
+
+#menu-button {
+    display: none;
+    background-color: #5e503f;
+    color: white;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 10px;
+}
+
+#menu-button:focus {
+    outline: none;
+}
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #5e503f;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.back-to-top:hover {
+    background-color: #a9927d;
+}
+
+.back-to-top.show {
+    opacity: 1;
+}
+
+#contact-section {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.contact-box {
+    background-color: #a9927d;
+    padding: 20px; /* Add padding inside the box */
+    text-align: center;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+    width: 350px; /* Width for larger screens */
+    height: 450px; /* Allow height to adjust based on content */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border: 2px solid #a9927d;
+    overflow: hidden; /* Ensure content doesn't overflow */
+    box-sizing: border-box; /* Include padding and border in element's total width and height */
+}
+
+.contact-box .contact-image {
+    width: 100px; /* Adjust width based on the design */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 10px;
+    margin-top: 80px;
+    margin-bottom: 20px; /* Space between the image and text */
+    display: block; /* Ensure image is a block-level element */
+    margin-left: auto; /* Center image horizontally */
+    margin-right: auto; /* Center image horizontally */
+}
+
+.contact-box:hover {
+    transform: scale(1.05);
+    background: linear-gradient(-180deg, #ccb39b, #6e5d4d);
+}
+
+.contact-box h1 {
+    font-size: 24px; /* Adjust font size based on the design */
+    margin-bottom: 20px; /* Space between header and paragraph */
+    background: linear-gradient(45deg, #c2c2c2, #ffffff, #c2c2c2); /* Gradient colors */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; /* Ensures the gradient is visible */
+}
+
+.contact-box p {
+    font-size: 16px; /* Adjust font size based on the design */
+    margin: 0; /* Remove default margin */
+    background: linear-gradient(45deg, #c2c2c2, #ffffff, #c2c2c2); /* Gradient colors */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; /* Ensures the gradient is visible */
+}
+
+@media (max-width: 768px) {
+    header {
+        height: 40px; /* 调整头部的高度 */
+    }
+
+    header ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 40px;
+        right: 0;
+        background-color: rgba(0, 0, 0, 0.8);
+        width: 100%;
+        text-align: right;
+        padding: 0;
+        transition: max-height 0.5s ease-out; /* 添加过渡效果 */
+        overflow: hidden; /* 隐藏超出部分 */
+        max-height: 0; /* 初始最大高度 */
+    }
+    
+    header ul.show {
+        display: flex;
+        max-height: 300px; /* 展开后的最大高度 */
+    }
+    
+    header li {
+        margin: 10px 0;
+        padding-left: 15px;
+        font-size: 12px;
+        text-align: right;
+    }
+    
+    /* 菜单按钮的样式 */
+    #menu-button {
+        display: block;
+        background-color: rgba(0, 0, 0, 0);
+        color: white;
+        border: none;
+        font-size: 24px;
+        cursor: pointer;
+        padding: 10px;
+        position: relative;
+        border-radius: 100px;
+    }
+
+    /* 菜单按钮的三条横线 */
+    #menu-button .bar {
+        display: block;
+        width: 25px;
+        height: 3px;
+        margin: 5px auto;
+        background-color: white;
+        transition: all 0.3s;
+        border-radius: 100px;
+    }
+
+    /* 菜单按钮变成叉的动画效果 */
+    #menu-button.change .bar1 {
+        transform: rotate(-45deg) translate(-5px, 6px);
+        border-radius: 100px;
+    }
+
+    #menu-button.change .bar2 {
+        opacity: 0;
+        border-radius: 100px;
+    }
+
+    #menu-button.change .bar3 {
+        transform: rotate(45deg) translate(-5px, -6px);
+        border-radius: 100px;
+    }
+    .back-to-top {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+    }
+    #contact-section {
+        flex-direction: column; /* Stack boxes vertically */
+        align-items: center; /* Center align items */
+        margin-top: 20px; /* Reduce margin for smaller screens */
+    }
+
+    .contact-box {
+        width: 80%; /* Adjust width for smaller screens */
+        height: 250px; /* Adjust height to fit content */
+        margin-bottom: 20px; /* Space between boxes */
+        padding: 20px; /* Adjust padding as needed */
+    }
+
+    .contact-box .contact-image {
+        margin-top:10px;
+        width: 20%; /* Adjust image width for mobile */
+        margin-bottom: 10px; /* Space between image and text */
+    }
+
+    .contact-box h1 {
+        font-size: 18px; /* Adjust font size for headers */
+    }
+
+    .contact-box p {
+        font-size: 16px; /* Adjust font size for paragraphs */
+    }
+}
+    @media (min-width: 769px) {
+        .toggle-button {
+            display: none; /* 隐藏展开按钮 */
+        }
+    }
