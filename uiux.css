@@ -266,17 +266,27 @@ header a:hover {
         font-size: 20px;
     }
     .banner {
-        flex-direction: column;
+        display: flex;
+        flex-direction: column-reverse;
         padding: 20px;
-        text-align: left;
+        align-items: center; /* 確保子項目靠左對齊 */
     }
-    .banner-image {
-        display: none;
-    }
-
-    .banner-text {
+    
+    .banner-text, .banner-image {
         padding: 0;
-        margin-bottom : 20px;
+        margin-bottom: 20px;
+    }
+    
+    .banner-image {
+        width: 80%; /* 在小屏幕上佔據全寬 */
+    }
+    
+    .banner h1 {
+        font-size: 28px;
+    }
+    
+    .banner p {
+        font-size: 16px;
     }
 
     .case-studies {
