@@ -1,0 +1,291 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Noto Sans TC", sans-serif;
+  font-weight: 400;
+  letter-spacing: 1px;
+  background-color: #ffffff;
+}
+.banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 50px;
+  background-color: #ffffff;
+}
+
+.banner-text {
+  flex: 1;
+  padding-left: 2rem;
+}
+
+.banner h1 {
+  font-size:44px;
+  color: #333;
+}
+
+.banner p {
+  font-size: 18px;
+  color: #999;
+  margin-top: 20px;
+}
+
+.banner-image {
+  flex: 1;
+  text-align: center;
+  margin: 0;
+}
+
+.banner-image img {
+  max-width: 70%;
+  height: auto;
+}
+
+.custom-section {
+  padding: 50px;
+  background-color: #ffffff;
+  justify-content: center;
+  display: flex;
+}
+
+.split-div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%; /* Adjust the width as needed */
+  max-width: 1400px; /* Set a max width for larger screens */
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  border: 1px solid;
+  border-color: #333;
+
+}
+
+.left-part, .right-part {
+  width: 48%;
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+}
+
+.left-part h2,.left-part p,.right-part p,.right-part h2{
+  text-align: center;
+  align-items: flex-start;
+}
+
+.left-part h2,.right-part h2{
+  margin-bottom: 10px;
+}
+
+.promotion {
+  padding: 50px;
+  background-color: #ffffff;
+  justify-content: center;
+  display: flex;
+}
+
+.web {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%; /* Adjust the width as needed */
+  max-width: 1400px; /* Set a max width for larger screens */
+  border-radius: 8px;
+}
+
+.web-left-part {
+  flex: 1;
+  padding: 50px;
+}
+
+.web-right-part {
+  flex: 1;
+}
+
+.web-right-part img {
+  width: 100%;
+  height: auto;
+  display: block;
+   border-radius: 8px;
+}
+
+.web-left-part h2,.web-left-part p,.web-right-part p,.web-right-part h2{
+  text-align: center;
+  align-items: flex-start;
+}
+
+.web-left-part h2{
+  margin-bottom: 10px;
+}
+
+
+.web-left-part1 {
+  flex: 1;
+  
+}
+
+.web-right-part1 {
+  flex: 1;
+  padding: 50px;
+}
+
+.web-left-part1 img {
+  width: 100%;
+  height: auto;
+  display: block;
+   border-radius: 8px;
+}
+
+.web-right-part1 p,.web-right-part1 h2{
+  text-align: center;
+  align-items: flex-start;
+}
+
+.web-left-part h2,.web-left-part h2{
+  margin-bottom: 10px;
+}
+
+.web-design{
+  text-align: center;
+  background-color: #ffffff;
+  padding: 50px;
+}
+
+.web-design h1{
+  text-align: center;
+  font-size: 40px;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 0px 50px 50px 50px;
+}
+
+/* Other existing styles */
+.browser-window {
+  max-width: auto;
+  max-height: auto;
+  background: #C7C7C7;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  border: 2px solid #333;
+}
+
+.title-bar {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  background: #f8f8f8;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 0 15px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.dot {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #c7c7c7;
+  border: 1px solid #000000;
+  cursor: pointer;
+}
+
+.dot:hover {
+  transform: scale(1.3);
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.slideshow-container {
+  max-width: 100%;
+}
+
+.mySlides {
+  display:none;
+}
+
+.mySlides img {
+  max-width: 1000px;
+}
+
+.show {
+  display: block;
+  animation: circular-dissolve 2s;
+}
+
+@keyframes circular-dissolve {
+  0% {
+      clip-path: circle(0% at 50% 50%);
+  }
+  100% {
+      clip-path: circle(75% at 50% 50%);
+  }
+}
+
+.dots-container {
+  margin: 20px;
+  text-align: center;
+}
+
+.active {
+  background-image: url("pic/robot1-03.jpg");
+  background-size: contain;
+  transform: scale(1.3);
+}
+
+.scroll-icon {
+  width: 60px;
+  height: 160px;
+  border: 2px solid rgb(0, 0, 0);
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  position: relative;
+  margin-right: 20px;
+  overflow: hidden; /* 確保滑動效果不會超出邊界 */
+}
+
+.circle {
+  width: 30px;
+  height: 30px;
+  background-color: #000000;
+  border-radius: 50%;
+  position: absolute;
+  animation: slide 2s infinite ease-in-out;
+}
+
+@keyframes slide {
+  0%, 100% {
+      top: 5%;
+      height: 30px;
+      border-radius: 50%;
+  }
+  50% {
+      top: 50%; /* 確保動畫滑動範圍在容器內 */
+      height: 70px; /* 保持高度一致 */
+      border-radius: 20px;
+  }
+}
