@@ -4,24 +4,26 @@
     box-sizing: border-box;
 }
 
+
 body {
     font-family: "Noto Sans TC", sans-serif;
     font-weight: 400;
     letter-spacing: 1px;
     background-color: #ffffff;
+    padding: 0px 20px;
 }
 
 header {
-    background-color: #a9927d;
+    background-color: #ffffff;
     height: 80px;
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
-    padding: 2vw;
+    justify-content: right;
 }
 
 header ul {
+    background-color:#ffffff;
     display: flex;
     list-style: none;
 }
@@ -31,10 +33,11 @@ header li {
 }
 
 header a {
-    color: white;
+    color: rgb(0, 0, 0);
     text-decoration: none;
     display: flex;
     align-items: center;
+    font-weight:normal;
 }
 
 header a img {
@@ -42,14 +45,14 @@ header a img {
 }
 
 header a:hover {
-    text-decoration: none;
-    color: #5e503f;
+    text-decoration:wavy;
+    color: #8b8b8b;
 }
 
 #menu-button {
     display: none;
-    background-color: #5e503f;
-    color: white;
+    background-color: #101010;
+    color: rgb(0, 0, 0);
     border: none;
     font-size: 24px;
     cursor: pointer;
@@ -64,7 +67,7 @@ header a:hover {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background-color: #5e503f;
+    background-color: #101010;
     color: white;
     border: none;
     border-radius: 50%;
@@ -80,7 +83,7 @@ header a:hover {
 }
 
 .back-to-top:hover {
-    background-color: #a9927d;
+    background-color: #4e4e4e;
 }
 
 .back-to-top.show {
@@ -91,7 +94,7 @@ header a:hover {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 50px;
+    padding: 0px 50px 20px 50px;
     background-color: #ffffff;
 }
 
@@ -101,7 +104,7 @@ header a:hover {
 }
 
 .banner h1 {
-    font-size: 44px;
+    font-size:44px;
     color: #333;
 }
 
@@ -132,7 +135,7 @@ header a:hover {
 }
 
 .browser-window {
-    width: 30%;
+    width: 47%;
     height: auto;
     background: #ffffff;
     border-radius: 8px;
@@ -146,7 +149,7 @@ header a:hover {
     display: flex;
     align-items: center;
     height: 30px;
-    background: #c0c0c0;
+    background: #ffffff;
     border-bottom: 1px solid #e0e0e0;
     padding: 0 15px;
     border-top-left-radius: 8px;
@@ -167,15 +170,15 @@ header a:hover {
 }
 
 .buttons .close {
-    background: #ff5f57;
+    background: #ffffff;
 }
 
 .buttons .minimize {
-    background: #ffbd2e;
+    background: #4e4e4e;
 }
 
 .buttons .maximize {
-    background: #28c940;
+    background: #101010;
 }
 
 .content {
@@ -253,9 +256,9 @@ header a:hover {
     top: 10px;
     left: 50%;
     transform: translateX(-50%);
-    width: 60px;
+    width: 40px;
     height: 10px;
-    background: #ffffff;
+    background: #000000;
     border-radius: 10px;
     border: 1px solid #000;
 }
@@ -280,27 +283,27 @@ header a:hover {
 
 @media (max-width: 768px) {
     header {
-        height: 40px;
+        height: 40px; /* 调整头部的高度 */
     }
 
     header ul {
         display: none;
         flex-direction: column;
         position: absolute;
-        top: 40px;
+        top: 45px;
         right: 0;
-        background-color: rgba(0, 0, 0, 0.8);
+        background-color: rgba(255, 255, 255, 0.9);
         width: 100%;
         text-align: right;
         padding: 0;
-        transition: max-height 0.5s ease-out;
-        overflow: hidden;
-        max-height: 0;
+        transition: max-height 0.5s ease-out; /* 添加过渡效果 */
+        overflow: hidden; /* 隐藏超出部分 */
+        max-height: 0; /* 初始最大高度 */
     }
     
     header ul.show {
         display: flex;
-        max-height: 300px;
+        max-height: 300px; /* 展开后的最大高度 */
     }
     
     header li {
@@ -310,10 +313,11 @@ header a:hover {
         text-align: right;
     }
     
+    /* 菜单按钮的样式 */
     #menu-button {
         display: block;
         background-color: rgba(0, 0, 0, 0);
-        color: white;
+        color: rgb(0, 0, 0);
         border: none;
         font-size: 24px;
         cursor: pointer;
@@ -322,16 +326,18 @@ header a:hover {
         border-radius: 100px;
     }
 
+    /* 菜单按钮的三条横线 */
     #menu-button .bar {
         display: block;
         width: 25px;
         height: 3px;
         margin: 5px auto;
-        background-color: white;
+        background-color: rgb(0, 0, 0);
         transition: all 0.3s;
         border-radius: 100px;
     }
 
+    /* 菜单按钮变成叉的动画效果 */
     #menu-button.change .bar1 {
         transform: rotate(-45deg) translate(-5px, 6px);
         border-radius: 100px;
@@ -346,7 +352,7 @@ header a:hover {
         transform: rotate(45deg) translate(-5px, -6px);
         border-radius: 100px;
     }
-    
+
     .back-to-top {
         width: 40px;
         height: 40px;
@@ -398,5 +404,9 @@ header a:hover {
 
     .title h1 {
         font-size: 28px;
+    }
+
+    .back-to-top:hover {
+        background-color: #101010;
     }
 }
