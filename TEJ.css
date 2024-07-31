@@ -14,13 +14,13 @@ body {
 }
 
 .goback{
-margin:30px 80px;
+  margin:30px 80px;
+  width: 30px;
 }
 
 .goback h1 {
   cursor: pointer;
   font-size: 30px;
-  width: 30px;
 }
 
 .no-underline {
