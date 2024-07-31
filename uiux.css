@@ -4,24 +4,26 @@
     box-sizing: border-box;
 }
 
+
 body {
     font-family: "Noto Sans TC", sans-serif;
     font-weight: 400;
     letter-spacing: 1px;
-    background-color: #f0f0f0;
+    background-color: #ffffff;
+    padding: 0px 20px;
 }
 
 header {
-    background-color: #a9927d;
+    background-color: #ffffff;
     height: 80px;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: right;
-    padding: 2vw;
 }
 
 header ul {
+    background-color:#ffffff;
     display: flex;
     list-style: none;
 }
@@ -31,10 +33,11 @@ header li {
 }
 
 header a {
-    color: white;
+    color: rgb(0, 0, 0);
     text-decoration: none;
     display: flex;
     align-items: center;
+    font-weight:normal;
 }
 
 header a img {
@@ -43,13 +46,13 @@ header a img {
 
 header a:hover {
     text-decoration:wavy;
-    color: #5e503f;
+    color: #8b8b8b;
 }
 
 #menu-button {
     display: none;
-    background-color: #5e503f;
-    color: white;
+    background-color: #101010;
+    color: rgb(0, 0, 0);
     border: none;
     font-size: 24px;
     cursor: pointer;
@@ -59,11 +62,12 @@ header a:hover {
 #menu-button:focus {
     outline: none;
 }
+
 .back-to-top {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background-color: #5e503f;
+    background-color: #101010;
     color: white;
     border: none;
     border-radius: 50%;
@@ -79,7 +83,7 @@ header a:hover {
 }
 
 .back-to-top:hover {
-    background-color: #a9927d;
+    background-color: #4e4e4e;
 }
 
 .back-to-top.show {
@@ -120,23 +124,23 @@ header a:hover {
     max-width: 70%;
     height: auto;
 }
+
 .case-studies {
     display: flex;
-    flex-wrap: wrap; /* 允許換行 */
-    justify-content: flex-start;
+    flex-wrap: wrap; 
+    justify-content: space-between;
     align-items: flex-start;
-    max-width: 1200px;
-    margin: 0 auto;
+    padding: 50px 100px;
+    gap:50px
 }
 
 .case {
-    flex: 1 1 300px; /* 使元素具有最小寬度並能擴展 */
-    max-width: 300px; /* 設定最大寬度 */
-    background-color: #f0f0f0;
+    max-width: 320px; 
+    background-color: #ffffff;
     border-radius: 10px;
     overflow: hidden;
-    margin: 50px; /* 調整邊距 */
     position: relative;
+    border:1px solid #101010;
 }
 
 .image-container {
@@ -144,27 +148,27 @@ header a:hover {
     padding-top: 100%; 
     position: relative; 
     overflow: hidden;
-    border-radius: 10px;
+    border-radius: 10px 10px 0px 0px;
 }
 
 .image-container img {
-    background-color: #dad8d9;
+    background-color: #ffffff;
     width: 100%;
     height: 100%;
     position: absolute;
     top: 0;
     left: 0;
-    object-fit: cover; /* 保持圖片比例 */
+    object-fit: cover;
     
 }
 
 .case:hover .image-container img {
-    transform: scale(1.05);
-    transition: transform 0.5s; /* 添加圖片的過渡效果 */
+    transform: scale(1.1);
+    transition: transform 0.5s;
 }
 
 .case h2 {
-    padding: 20px;
+    padding: 20px 20px 0px 20px;
     font-size: 1.5rem;
     color: #333;
 }
@@ -177,41 +181,66 @@ header a:hover {
 
 .case a {
     display: block;
-    padding: 1rem;
+    padding:20px;
     text-align: right;
-    color: #333;
+    color: #101010;
     font-size: 12px;
     text-decoration: none;
+    background-color: #ffffff;
+    position: relative;
+    overflow: hidden;
+    transition: color 0.3s ease;
 }
 
-.case:hover {
-    border: 1px solid;
-    border-color: #d3d3d3;
+.case a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: #101010;
+    color: #ffffff;
+    transition: left 0.3s ease;
+    z-index: 0;
+}
+
+.case a:hover::before {
+    left: 0;
+}
+
+.case a:hover {
+    color: #ffffff;
+}
+
+.case a span {
+    position: relative;
+    z-index: 1;
 }
 
 @media (max-width: 768px) {
     header {
-        height: 40px; /* 调整头部的高度 */
+        height: 40px;
     }
 
     header ul {
         display: none;
         flex-direction: column;
         position: absolute;
-        top: 40px;
+        top: 45px;
         right: 0;
-        background-color: rgba(0, 0, 0, 0.8);
+        background-color: rgba(255, 255, 255, 0.9);
         width: 100%;
         text-align: right;
         padding: 0;
-        transition: max-height 0.5s ease-out; /* 添加过渡效果 */
-        overflow: hidden; /* 隐藏超出部分 */
-        max-height: 0; /* 初始最大高度 */
+        transition: max-height 0.5s ease-out;
+        overflow: hidden;
+        max-height: 0;
     }
     
     header ul.show {
         display: flex;
-        max-height: 300px; /* 展开后的最大高度 */
+        max-height: 300px;
     }
     
     header li {
@@ -221,11 +250,10 @@ header a:hover {
         text-align: right;
     }
     
-    /* 菜单按钮的样式 */
     #menu-button {
         display: block;
         background-color: rgba(0, 0, 0, 0);
-        color: white;
+        color: rgb(0, 0, 0);
         border: none;
         font-size: 24px;
         cursor: pointer;
@@ -234,18 +262,16 @@ header a:hover {
         border-radius: 100px;
     }
 
-    /* 菜单按钮的三条横线 */
     #menu-button .bar {
         display: block;
         width: 25px;
         height: 3px;
         margin: 5px auto;
-        background-color: white;
+        background-color: rgb(0, 0, 0);
         transition: all 0.3s;
         border-radius: 100px;
     }
 
-    /* 菜单按钮变成叉的动画效果 */
     #menu-button.change .bar1 {
         transform: rotate(-45deg) translate(-5px, 6px);
         border-radius: 100px;
@@ -260,16 +286,18 @@ header a:hover {
         transform: rotate(45deg) translate(-5px, -6px);
         border-radius: 100px;
     }
+
     .back-to-top {
         width: 40px;
         height: 40px;
         font-size: 20px;
     }
+
     .banner {
         display: flex;
         flex-direction: column-reverse;
         padding: 20px;
-        align-items: center; /* 確保子項目靠左對齊 */
+        align-items: center;
     }
     
     .banner-text, .banner-image {
@@ -278,7 +306,7 @@ header a:hover {
     }
     
     .banner-image {
-        width: 80%; /* 在小屏幕上佔據全寬 */
+        width: 80%;
     }
     
     .banner h1 {
@@ -290,26 +318,32 @@ header a:hover {
     }
 
     .case-studies {
-        flex-direction: column;
-        align-items: center;
+       max-width: 100%;
+       padding: 20px;
+       margin-bottom: 30px;
     }
 
     .case {
-        flex: 1 1 100%;
-        max-width: 100%;
-        margin: 20px;
+        max-width: 100%; 
+        margin: 0px auto;
     }
 
     .case p {
         padding: 20px 20px 0 20px;
+        margin-bottom: 20px;
     }
 
     .case a {
-        padding: 0 20px 20px 20px;
+        padding: 20px;
+        background-color: #101010;
+        color: #ffffff;
+    }
+
+    .case a::before {
+        content: none;
+    }
+
+    .back-to-top:hover {
+        background-color: #101010;
     }
 }
-    @media (min-width: 769px) {
-        .toggle-button {
-            display: none; /* 隐藏展开按钮 */
-        }
-    }
