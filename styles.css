@@ -184,7 +184,7 @@ h3 {
 .rectangles-container {
     display: flex;
     flex-direction: column;
-    gap: 50px;
+    gap: 20px;
     width: 100%;
 }
 
@@ -256,7 +256,7 @@ h3 {
         display: none;
         flex-direction: column;
         position: absolute;
-        top: 40px;
+        top: 45px;
         right: 0;
         background-color: rgba(255, 255, 255, 0.9);
         width: 100%;
@@ -392,7 +392,7 @@ h3 {
    .rectangle-wrapper h3 {
         text-align: left;
         font-size: 16px;
-        color: #5e503f;
+        color: #101010;
         text-decoration: none !important; 
         pointer-events: none !important; 
     }
@@ -407,60 +407,15 @@ h3 {
         font-size: 14px;
     }
 
+    .back-to-top:hover {
+        background-color: #101010;
+    }
+
 }
 
 /* 非手机响应式下的样式 */
 @media (min-width: 769px) {
     .toggle-button {
         display: none; /* 隐藏展开按钮 */
-    }
-}
-
-@media (max-width: 1024px) and (min-width: 768px) {
-    .info-section {
-        padding: 4vw;
-    }
-
-    .left-block, .right-block {
-        max-width: 90%;
-    }
-
-    .profile-pic {
-        max-width: 70%;
-    }
-
-    .top-text h2 {
-        font-size: 42px;
-    }
-
-    .bottom-text p {
-        font-size: 17px;
-    }
-
-    .text-content p, .text-content li {
-        margin: 15px;
-    }
-
-    .red-block {
-        font-size: 22px;
-        padding: 12px;
-    }
-
-    .rectangle {
-        padding: 18px;
-    }
-
-    .rectangle h5 {
-        font-size: 17px;
-    }
-
-    .rectangle p {
-        font-size: 15px;
-    }
-
-    .back-to-top {
-        width: 45px;
-        height: 45px;
-        font-size: 22px;
     }
 }
