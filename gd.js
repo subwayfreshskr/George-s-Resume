@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     let currentCategory = '';
     const images = {
-        '行銷活動': ['gd/線上工作坊行程.png','gd/EDM-02.png','gd/EDM-04.png','gd/EDM-06.png',
+        '行銷活動': ['pic/rose.jpg','gd/EDM-02.png','gd/EDM-04.png','gd/EDM-06.png',
             'gd/EDM-08.png','gd/FB_-01.png','gd/主視覺-07.png','gd/主視覺-13.png'],
         '課程活動': ['pic/端午節_Banner.png'],
         '公司宣傳': ['pic/端午節_Banner.png'],
@@ -64,6 +64,15 @@ document.addEventListener('DOMContentLoaded', function () {
     document.querySelectorAll('.category-box').forEach(box => {
         box.addEventListener('click', function () {
             const category = this.innerText.trim();
+            if (images[category]) {
+                showModal(category);
+            }
+        });
+    });
+
+    document.querySelectorAll('.browser-window').forEach(window => {
+        window.addEventListener('click', function () {
+            const category = '行銷活動'; // 根据需要替换为适当的类别
             if (images[category]) {
                 showModal(category);
             }
