@@ -4,25 +4,26 @@
     box-sizing: border-box;
 }
 
+
 body {
     font-family: "Noto Sans TC", sans-serif;
     font-weight: 400;
     letter-spacing: 1px;
-    background-color: #fff8ef;
+    background-color: #ffffff;
+    padding: 0px 20px;
 }
 
 header {
-    background-color: #a9927d;
+    background-color: #ffffff;
     height: 80px;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: right;
-    padding: 3vw;
 }
 
 header ul {
-    background-color: #a9927d;
+    background-color:#ffffff;
     display: flex;
     list-style: none;
 }
@@ -32,10 +33,11 @@ header li {
 }
 
 header a {
-    color: white;
+    color: rgb(0, 0, 0);
     text-decoration: none;
     display: flex;
     align-items: center;
+    font-weight:normal;
 }
 
 header a img {
@@ -43,14 +45,14 @@ header a img {
 }
 
 header a:hover {
-    text-decoration: wavy;
-    color: #5e503f;
+    text-decoration:wavy;
+    color: #8b8b8b;
 }
 
 #menu-button {
     display: none;
-    background-color: #5e503f;
-    color: white;
+    background-color: #101010;
+    color: rgb(0, 0, 0);
     border: none;
     font-size: 24px;
     cursor: pointer;
@@ -65,7 +67,7 @@ header a:hover {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background-color: #5e503f;
+    background-color: #101010;
     color: white;
     border: none;
     border-radius: 50%;
@@ -81,53 +83,158 @@ header a:hover {
 }
 
 .back-to-top:hover {
-    background-color: #a9927d;
+    background-color: #4e4e4e;
 }
 
 .back-to-top.show {
     opacity: 1;
 }
 
-.category-container {
-    padding: 3vw;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-}
-
-.category-box {
-    width: 30%;
-    height: 250px;
-    margin: 20px;
+.banner {
     display: flex;
     align-items: center;
-    justify-content: center;
-    position: relative;
-    overflow: hidden;
-    border-radius: 5px;
+    justify-content: space-between;
+    padding: 0px 50px 20px 50px;
+    background-color: #ffffff;
+}
+
+.banner-text {
+    flex: 1;
+    padding-left: 2rem;
+}
+
+.banner h1 {
+    font-size:44px;
+    color: #333;
+}
+
+.banner p {
+    font-size: 18px;
+    color: #999;
+    margin-top: 20px;
+}
+
+.banner-image {
+    flex: 1;
+    text-align: center;
+    margin: 0;
+}
+
+.banner-image img {
+    max-width: 70%;
+    height: auto;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 50px 100px;
+    gap: 50px;
+}
+
+.browser-window {
+    width: 47%;
+    height: auto;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #000;
     cursor: pointer;
-    background-size: cover;
-    background-position: center;
-    transition: transform 0.3s;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.category-box:hover {
-    transform: scale(1.1);
+.browser-window:hover {
+    transform: scale(1.05); /* 放大效果 */
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.2); /* 更大的阴影 */
 }
 
-.category-box span {
+.title-bar {
+    display: flex;
+    align-items: center;
+    height: 30px;
+    background: #ffffff;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 0 15px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.buttons div {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #ccc;
+    border: 1px solid #000;
+}
+
+.buttons .close {
+    background: #ffffff;
+}
+
+.buttons .minimize {
+    background: #4e4e4e;
+}
+
+.buttons .maximize {
+    background: #101010;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.slideshow-container {
+    width: 100%;
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mySlides {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.mySlides img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    object-position:bottom;
+}
+
+.slide-caption {
     position: absolute;
     bottom: 0;
+    left: 0;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    text-align: center;
-    padding: 10px 0;
-    font-size: 16px;
-    border-radius: 0 0 5px 5px;
-    opacity: 1;
-    transition: opacity 0.3s;
+    background-color: rgba(255, 255, 255, 0.8); /* 背景半透明黑色 */
+    color: rgb(0, 0, 0); /* 文字顏色 */
+    text-align: center; /* 文字置中 */
+    padding: 10px; /* 內間距 */
+    box-sizing: border-box;
+    border-radius: 0px 0px 8px 8px ;
+    font-weight: bold;
 }
 
 .modal {
@@ -152,128 +259,8 @@ header a:hover {
     left: 50%;
     transform: translate(-50%, -50%);
     overflow: hidden;
-    border-radius: 20px;
+    border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-}
-
-@media (max-width: 768px) {
-    .modal-content {
-        width: 90%;
-        height: 80%;
-    }
-
-    header {
-        height: 40px;
-    }
-
-    header ul {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 40px;
-        right: 0;
-        background-color: rgba(0, 0, 0, 0.9);
-        width: 100%;
-        text-align: right;
-        padding: 0;
-        transition: max-height 0.5s ease-out;
-        overflow: hidden;
-        max-height: 0;
-        z-index: 1000;
-    }
-    
-    header ul.show {
-        display: flex;
-        max-height: 300px;
-    }
-    
-    header li {
-        margin: 10px 0;
-        padding-left: 15px;
-        font-size: 12px;
-        text-align: right;
-    }
-
-    #menu-button {
-        display: block;
-        background-color: rgba(0, 0, 0, 0);
-        color: white;
-        border: none;
-        font-size: 24px;
-        cursor: pointer;
-        padding: 10px;
-        position: relative;
-        border-radius: 100px;
-    }
-
-    #menu-button .bar {
-        display: block;
-        width: 25px;
-        height: 3px;
-        margin: 5px auto;
-        background-color: white;
-        transition: all 0.3s;
-        border-radius: 100px;
-    }
-
-    #menu-button.change .bar1 {
-        transform: rotate(-45deg) translate(-5px, 6px);
-        border-radius: 100px;
-    }
-
-    #menu-button.change .bar2 {
-        opacity: 0;
-        border-radius: 100px;
-    }
-
-    #menu-button.change .bar3 {
-        transform: rotate(45deg) translate(-5px, -6px);
-        border-radius: 100px;
-    }
-
-    .back-to-top {
-        width: 40px;
-        height: 40px;
-        font-size: 20px;
-    }
-
-    .category-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 3vw;
-    }
-
-    .category-box {
-        width: calc(80% - 6vw);
-        height: 150px;
-        aspect-ratio: 1 / 1;
-        margin: 10px 0;
-        padding: 3vw;
-        box-sizing: border-box;
-    }
-
-    .category-box span {
-        font-size: 14px;
-        padding: 5px 0;
-    }
-
-    .modal-content {
-        width: 90vw;
-        height: 50vh;
-    }
-
-    @media (min-aspect-ratio: 16/9) { 
-        .modal-content {
-            height: 40vh; 
-        }
-    }
-
-    @media (max-aspect-ratio: 9/16) { 
-        .modal-content {
-            height: 60vh;
-        }
-    }
 }
 
 .close-button {
@@ -343,8 +330,140 @@ header a:hover {
     right: 10px;
 }
 
-@media (min-width: 769px) {
-    .toggle-button {
+@media (max-width: 768px) {
+    .modal-content {
+        width: 90%;
+        height: 80%;
+    }
+
+    header {
+        height: 40px; /* 调整头部的高度 */
+    }
+
+    header ul {
         display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 45px;
+        right: 0;
+        background-color: rgba(255, 255, 255, 0.9);
+        width: 100%;
+        text-align: right;
+        padding: 0;
+        transition: max-height 0.5s ease-out; /* 添加过渡效果 */
+        overflow: hidden; /* 隐藏超出部分 */
+        max-height: 0; /* 初始最大高度 */
+    }
+    
+    header ul.show {
+        display: flex;
+        max-height: 300px; /* 展开后的最大高度 */
+    }
+    
+    header li {
+        margin: 10px 0;
+        padding-left: 15px;
+        font-size: 12px;
+        text-align: right;
+    }
+    
+    /* 菜单按钮的样式 */
+    #menu-button {
+        display: block;
+        background-color: rgba(0, 0, 0, 0);
+        color: rgb(0, 0, 0);
+        border: none;
+        font-size: 24px;
+        cursor: pointer;
+        padding: 10px;
+        position: relative;
+        border-radius: 100px;
+    }
+
+    /* 菜单按钮的三条横线 */
+    #menu-button .bar {
+        display: block;
+        width: 25px;
+        height: 3px;
+        margin: 5px auto;
+        background-color: rgb(0, 0, 0);
+        transition: all 0.3s;
+        border-radius: 100px;
+    }
+
+    /* 菜单按钮变成叉的动画效果 */
+    #menu-button.change .bar1 {
+        transform: rotate(-45deg) translate(-5px, 6px);
+        border-radius: 100px;
+    }
+
+    #menu-button.change .bar2 {
+        opacity: 0;
+        border-radius: 100px;
+    }
+
+    #menu-button.change .bar3 {
+        transform: rotate(45deg) translate(-5px, -6px);
+        border-radius: 100px;
+    }
+
+    .back-to-top {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+    }
+
+    .banner {
+        display: flex;
+        flex-direction: column-reverse;
+        padding: 20px;
+        align-items: center; /* 確保子項目靠左對齊 */
+    }
+    
+    .banner-text, .banner-image {
+        padding: 0;
+        margin-bottom: 20px;
+    }
+    
+    .banner-image {
+        width: 80%; /* 在小屏幕上佔據全寬 */
+    }
+    
+    .banner h1 {
+        font-size: 28px;
+    }
+    
+    .banner p {
+        font-size: 16px;
+    }
+
+    .container {
+        padding: 0px 20px 20px 20px;
+        margin-bottom: 30px;
+    }
+
+    .browser-window {
+        width: 100%;
+    }
+
+    .modal-content {
+        width: 90vw;
+        height: 50vh;
+    }
+
+    @media (min-aspect-ratio: 16/9) { 
+        .modal-content {
+            height: 40vh; 
+        }
+    }
+
+    @media (max-aspect-ratio: 9/16) { 
+        .modal-content {
+            height: 60vh;
+        }
+    }
+
+    .back-to-top:hover {
+        background-color: #101010;
     }
 }
