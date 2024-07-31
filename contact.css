@@ -4,24 +4,26 @@
     box-sizing: border-box;
 }
 
+
 body {
     font-family: "Noto Sans TC", sans-serif;
     font-weight: 400;
     letter-spacing: 1px;
     background-color: #ffffff;
+    padding: 0px 20px;
 }
 
 header {
-    background-color: #a9927d;
+    background-color: #ffffff;
     height: 80px;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: right;
-    padding: 2vw;
 }
 
 header ul {
+    background-color:#ffffff;
     display: flex;
     list-style: none;
 }
@@ -31,10 +33,11 @@ header li {
 }
 
 header a {
-    color: white;
+    color: rgb(0, 0, 0);
     text-decoration: none;
     display: flex;
     align-items: center;
+    font-weight:normal;
 }
 
 header a img {
@@ -43,13 +46,13 @@ header a img {
 
 header a:hover {
     text-decoration:wavy;
-    color: #5e503f;
+    color: #8b8b8b;
 }
 
 #menu-button {
     display: none;
-    background-color: #5e503f;
-    color: white;
+    background-color: #101010;
+    color: rgb(0, 0, 0);
     border: none;
     font-size: 24px;
     cursor: pointer;
@@ -59,11 +62,12 @@ header a:hover {
 #menu-button:focus {
     outline: none;
 }
+
 .back-to-top {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background-color: #5e503f;
+    background-color: #101010;
     color: white;
     border: none;
     border-radius: 50%;
@@ -79,7 +83,7 @@ header a:hover {
 }
 
 .back-to-top:hover {
-    background-color: #a9927d;
+    background-color: #4e4e4e;
 }
 
 .back-to-top.show {
@@ -90,7 +94,7 @@ header a:hover {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding:50px;
+    padding: 0px 50px 20px 50px;
     background-color: #ffffff;
 }
 
@@ -125,7 +129,7 @@ header a:hover {
     display:flex;
     justify-content: space-between;
     align-items: center;
-    margin: 0px 100px 30px 100px;
+    margin: 50px 100px;
     flex-wrap: wrap;
 }
 
@@ -145,12 +149,12 @@ header a:hover {
   bottom: 100%;
   transform: translateY(100%);
   padding: 50px 60px;
-  transition: all 0.35s cubic-bezier(0.1, 0.72, 0.4, 0.97);
+  transition: all 0.5s cubic-bezier(0.1, 0.72, 0.4, 0.97);
 }
 
 .card-hover:hover img {
   transform: scale(1);
-  transition: 0.35s 0.1s transform cubic-bezier(0.1, 0.72, 0.4, 0.97);
+  transition: 0.5s 0.5s transform cubic-bezier(0.1, 0.72, 0.4, 0.97);
 }
 .card-hover__content {
   width: 100%;
@@ -218,81 +222,83 @@ header a:hover {
 }
 
 @media (max-width: 768px) {
-    header {
-        height: 40px; /* 调整头部的高度 */
-    }
+  header {
+    height: 40px; /* 调整头部的高度 */
+}
 
-    header ul {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 40px;
-        right: 0;
-        background-color: rgba(0, 0, 0, 0.8);
-        width: 100%;
-        text-align: right;
-        padding: 0;
-        transition: max-height 0.5s ease-out; /* 添加过渡效果 */
-        overflow: hidden; /* 隐藏超出部分 */
-        max-height: 0; /* 初始最大高度 */
-    }
-    
-    header ul.show {
-        display: flex;
-        max-height: 300px; /* 展开后的最大高度 */
-    }
-    
-    header li {
-        margin: 10px 0;
-        padding-left: 15px;
-        font-size: 12px;
-        text-align: right;
-    }
-    
-    /* 菜单按钮的样式 */
-    #menu-button {
-        display: block;
-        background-color: rgba(0, 0, 0, 0);
-        color: white;
-        border: none;
-        font-size: 24px;
-        cursor: pointer;
-        padding: 10px;
-        position: relative;
-        border-radius: 100px;
-    }
+header ul {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 45px;
+    right: 0;
+    background-color: rgba(255, 255, 255, 0.9);
+    width: 100%;
+    text-align: right;
+    padding: 0;
+    transition: max-height 0.5s ease-out; /* 添加过渡效果 */
+    overflow: hidden; /* 隐藏超出部分 */
+    max-height: 0; /* 初始最大高度 */
+}
 
-    /* 菜单按钮的三条横线 */
-    #menu-button .bar {
-        display: block;
-        width: 25px;
-        height: 3px;
-        margin: 5px auto;
-        background-color: white;
-        transition: all 0.3s;
-        border-radius: 100px;
-    }
+header ul.show {
+    display: flex;
+    max-height: 300px; /* 展开后的最大高度 */
+}
 
-    /* 菜单按钮变成叉的动画效果 */
-    #menu-button.change .bar1 {
-        transform: rotate(-45deg) translate(-5px, 6px);
-        border-radius: 100px;
-    }
+header li {
+    margin: 10px 0;
+    padding-left: 15px;
+    font-size: 12px;
+    text-align: right;
+}
 
-    #menu-button.change .bar2 {
-        opacity: 0;
-        border-radius: 100px;
-    }
+/* 菜单按钮的样式 */
+#menu-button {
+    display: block;
+    background-color: rgba(0, 0, 0, 0);
+    color: rgb(0, 0, 0);
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 10px;
+    position: relative;
+    border-radius: 100px;
+}
 
-    #menu-button.change .bar3 {
-        transform: rotate(45deg) translate(-5px, -6px);
-        border-radius: 100px;
-    }
-    .back-to-top {
-        width: 40px;
-        height: 40px;
-        font-size: 20px;
-    }
+/* 菜单按钮的三条横线 */
+#menu-button .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: rgb(0, 0, 0);
+    transition: all 0.3s;
+    border-radius: 100px;
+}
+
+/* 菜单按钮变成叉的动画效果 */
+#menu-button.change .bar1 {
+    transform: rotate(-45deg) translate(-5px, 6px);
+    border-radius: 100px;
+}
+
+#menu-button.change .bar2 {
+    opacity: 0;
+    border-radius: 100px;
+}
+
+#menu-button.change .bar3 {
+    transform: rotate(45deg) translate(-5px, -6px);
+    border-radius: 100px;
+}
+
+.back-to-top {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+}
+
     .banner {
         display: flex;
         flex-direction: column-reverse;
@@ -321,6 +327,7 @@ header a:hover {
         margin: 0px 20px 30px 20px;
         flex-direction: column;
         align-items: stretch;
+        gap:30px
       }
     
       .card-hover {
@@ -336,10 +343,9 @@ header a:hover {
         padding: 20px;
       }
     
-    /* Existing card-hover styles */
     .card-hover {
       width: 340px;
-      height: 400px;
+      height: 350px;
       position: relative;
       overflow: hidden;
       box-shadow: 0 0 32px -10px rgba(0, 0, 0, 0.08);
@@ -362,7 +368,7 @@ header a:hover {
     .card-hover__content {
       width: 100%;
       text-align: center;
-      background-color: #aaaaaa;
+      background-color: #000000;
       color: #ffffff;
       padding: 0 60px 50px;
       position: absolute;
@@ -421,9 +427,9 @@ header a:hover {
       transform: scale(1.2);
       transition: 0.35s 0.35s transform cubic-bezier(0.1, 0.72, 0.4, 0.97);
     }
+
+    .back-to-top:hover {
+      background-color: #101010;
+      z-index: 1001;
+  }
 }
-    @media (min-width: 769px) {
-        .toggle-button {
-            display: none; /* 隐藏展开按钮 */
-        }
-    }
