@@ -9,7 +9,8 @@ body {
     font-family: "Noto Sans TC", sans-serif;
     font-weight: 400;
     letter-spacing: 1px;
-    background-color: #ffffff;
+    background-image: url("pic/black.jpg");
+    background-position: center;
     padding: 0px 20px;
 }
 
@@ -40,14 +41,33 @@ header a {
     font-weight:normal;
 }
 
-header a img {
-    margin-right: 8px;
+.about-link {
+    color: #000;
+    text-decoration: none;
+    position: relative;
+    display: inline-block;
 }
 
-header a:hover {
-    text-decoration:wavy;
-    color: #8b8b8b;
+.about-link::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -3px;
+    width: 0;
+    height: 2px;
+    background-color: #101010;
+    transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
 }
+
+.about-link:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+.active-link {
+    color: #000000;
+    font-weight:bolder;
+  }
 
 #menu-button {
     display: none;
@@ -96,6 +116,7 @@ header a:hover {
     justify-content: space-between;
     padding: 0px 50px 20px 50px;
     background-color: #ffffff;
+    border-radius: 0px 0px 50px 50px ;
 }
 
 .banner-text {
@@ -105,7 +126,7 @@ header a:hover {
 
 .banner h1 {
     font-size:44px;
-    color: #333;
+    color: #101010;
 }
 
 .banner p {
@@ -140,7 +161,7 @@ header a:hover {
     border-radius: 10px;
     overflow: hidden;
     position: relative;
-    border:1px solid #101010;
+    border:1px solid #ffffff;
 }
 
 .image-container {
@@ -170,13 +191,13 @@ header a:hover {
 .case h2 {
     padding: 20px 20px 0px 20px;
     font-size: 1.5rem;
-    color: #333;
+    color: #101010;
 }
 
 .case p {
     padding: 20px;
     font-size: 1rem;
-    color: #333;
+    color: #101010;
 }
 
 .case a {
