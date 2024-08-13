@@ -3,7 +3,7 @@
     margin: 0;
     box-sizing: border-box;
 }
-
+ 
 
 body {
     font-family: "Noto Sans TC", sans-serif;
@@ -40,14 +40,33 @@ header a {
     font-weight:normal;
 }
 
-header a img {
-    margin-right: 8px;
+.about-link {
+    color: #000;
+    text-decoration: none;
+    position: relative;
+    display: inline-block;
 }
 
-header a:hover {
-    text-decoration:wavy;
-    color: #8b8b8b;
+.about-link::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -3px;
+    width: 0;
+    height: 2px;
+    background-color: #101010;
+    transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
 }
+
+.about-link:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+.active-link {
+    color: #000000;
+    font-weight:bolder;
+  }
 
 #menu-button {
     display: none;
@@ -109,8 +128,7 @@ header a:hover {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    padding: 5vw;
-    padding-top: 2vw;
+    padding: 2vw 5vw;
 }
 
 .additional-section .left-block {
