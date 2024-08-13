@@ -9,7 +9,8 @@ body {
     font-family: "Noto Sans TC", sans-serif;
     font-weight: 400;
     letter-spacing: 1px;
-    background-color: #ffffff;
+    background-image: url("pic/black.jpg");
+    background-position: center;
     padding: 0px 20px;
 }
 
@@ -40,14 +41,33 @@ header a {
     font-weight:normal;
 }
 
-header a img {
-    margin-right: 8px;
+.about-link {
+    color: #000;
+    text-decoration: none;
+    position: relative;
+    display: inline-block;
 }
 
-header a:hover {
-    text-decoration:wavy;
-    color: #8b8b8b;
+.about-link::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -3px;
+    width: 0;
+    height: 2px;
+    background-color: #101010;
+    transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
 }
+
+.about-link:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+.active-link {
+    color: #000000;
+    font-weight:bolder;
+  }
 
 #menu-button {
     display: none;
@@ -96,6 +116,7 @@ header a:hover {
     justify-content: space-between;
     padding: 0px 50px 20px 50px;
     background-color: #ffffff;
+    border-radius: 0px 0px 50px 50px ;
 }
 
 .banner-text {
@@ -105,7 +126,7 @@ header a:hover {
 
 .banner h1 {
     font-size:44px;
-    color: #333;
+    color: #101010;
 }
 
 .banner p {
@@ -137,7 +158,7 @@ header a:hover {
 .browser-window {
     width: 47%;
     height: auto;
-    background: #ffffff;
+    background: #000000;
     border-radius: 8px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     display: flex;
@@ -150,7 +171,7 @@ header a:hover {
     align-items: center;
     height: 30px;
     background: #ffffff;
-    border-bottom: 1px solid #e0e0e0;
+    border-bottom: 1px solid #ffffff;
     padding: 0 15px;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
@@ -174,11 +195,11 @@ header a:hover {
 }
 
 .buttons .minimize {
-    background: #4e4e4e;
+    background: #ffffff;
 }
 
 .buttons .maximize {
-    background: #101010;
+    background: #ffffff;
 }
 
 .content {
@@ -218,13 +239,68 @@ header a:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 30px;
+    margin: 70px;
 }
 
 .title h1 {
-    font-size: 40px;
+    font-size: 50px;
     font-weight: bolder;
-}
+    color: transparent;
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+  }
+  
+  .title h1::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+    z-index: 1;
+    animation: flash 2.5s ease-in-out forwards;
+  }
+  
+  @keyframes flash {
+    0% {
+      left: 0;
+      width: 100%;
+    }
+    50% {
+      left: 100%;
+      width: 0%;
+    }
+    100% {
+      left: 100%;
+      width: 0%;
+      background: transparent;
+    }
+  }
+  
+  .title h1::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #ffffff;
+    z-index: 2;
+    width: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    animation: revealText 1s ease-in-out forwards;
+    animation-delay: 1s;
+  }
+  
+  @keyframes revealText {
+    0% {
+      width: 0;
+    }
+    100% {
+      width: 100%;
+    }
+  }
 
 .shorts {
     display: flex;
@@ -244,7 +320,7 @@ header a:hover {
     position: relative;
     width: 250px;
     height: 500px;
-    background: #fff;
+    background: #ffffff;
     border-radius: 30px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
     border: 1px solid #000;
@@ -269,7 +345,7 @@ header a:hover {
     left: 15px;
     width: calc(100% - 30px);
     height: calc(100% - 50px);
-    background: #fff;
+    background: #000000;
     border-radius: 20px;
     overflow: hidden;
     border: 1px solid #000;
