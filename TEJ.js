@@ -26,14 +26,12 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 let slideIndex = 1;
-let scrollCount = 0;
-const scrollThreshold = 3;
 
 showSlides(slideIndex);
 
 function showSlides(n) {
     let slides = document.getElementsByClassName("mySlides");
-    let dots = document.getElementsByClassName("dot");
+    let altText = document.getElementById("altText");
 
     if (n > slides.length) { slideIndex = 1 }
     if (n < 1) { slideIndex = slides.length }
@@ -43,14 +41,14 @@ function showSlides(n) {
         slides[i].classList.remove("show");
     }
 
-    for (let i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" active", "");
-    }
-
     slides[slideIndex - 1].style.display = "block";
     slides[slideIndex - 1].classList.add("show");
-    dots[slideIndex - 1].className += " active";
+
+    // Update title bar with alt text of the current image
+    altText.textContent = slides[slideIndex - 1].querySelector("img").alt;
 }
+
+showSlides(slideIndex);
 
 function currentSlide(n) {
     showSlides(slideIndex = n);
@@ -60,20 +58,7 @@ function plusSlides(n) {
     showSlides(slideIndex += n);
 }
 
-document.getElementById("browserWindow").addEventListener("wheel", function(event) {
-    event.preventDefault();
-    scrollCount++;
-
-    if (scrollCount >= scrollThreshold) {
-        if (event.deltaY > 0) {
-            plusSlides(1);
-        } else {
-            plusSlides(-1);
-        }
-        scrollCount = 0;
-    }
-});
-
+// Removed the mouse wheel functionality
 
 let startX;
 document.getElementById("browserWindow").addEventListener("touchstart", function(event) {
@@ -92,3 +77,22 @@ document.getElementById("browserWindow").addEventListener("touchend", function(e
         }
     }
 });
+
+document.querySelector('.arrow-animation').addEventListener('click', function() {
+    document.querySelector('.custom-section').scrollIntoView({ behavior: 'smooth' });
+});
+
+window.addEventListener('load', function() {
+    if (window.innerWidth <= 768) {
+        const maskOverlay = document.querySelector('.mask-overlay');
+        if (maskOverlay) {
+            setTimeout(function() {
+                maskOverlay.style.opacity = '0';
+                setTimeout(function() {
+                    maskOverlay.style.display = 'none';
+                }, 1000);
+            }, 3500);
+        }
+    }
+});
+
