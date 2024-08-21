@@ -631,12 +631,11 @@ body {
   }
   
   .banner h1 {
-      font-size: 20px;
+      font-size: 14px;
   }
   
   .banner p {
-      font-size: 28px;
-    white-space: normal;
+      font-size: 20px;
   }
 
   .back-to-top:hover {
