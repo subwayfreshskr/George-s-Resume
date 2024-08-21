@@ -107,6 +107,7 @@ body {
   position: relative;
   display: inline-block;
   overflow: hidden;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
 }
 
 .banner p::before {
@@ -315,7 +316,7 @@ body {
 .split-div {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     width: 100%;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
@@ -417,7 +418,6 @@ body {
 .browser-window {
     max-width: auto;
     max-height: auto;
-    background: #ebbf2a;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -617,7 +617,7 @@ body {
         display: flex;
         flex-direction: column-reverse;
         padding: 20px;
-        align-items: center; /* 確保子項目靠左對齊 */
+        align-items: center;
     }
     
     .banner-text, .banner-image {
@@ -630,11 +630,11 @@ body {
     }
     
     .banner h1 {
-        font-size: 24px;
+        font-size: 20px;
     }
     
     .banner p {
-        font-size: 38px;
+        font-size: 28px;
     }
 
     .back-to-top:hover {
@@ -651,7 +651,7 @@ body {
     }
 
     .title,.title1,.title2,.title3{
-      font-size: 60px;
+      font-size: 50px;
       text-align: center;
     }
 
@@ -660,6 +660,13 @@ body {
       margin-top: 30px;
     }
 
+    .left-part h2,.right-part h2{
+      font-size: 24px;
+      }
+
+      .left-part li,.right-part li {
+        font-size: 16px;
+      }
     .web, .web1 {
       flex-direction: column;
       align-items: center;
@@ -714,8 +721,13 @@ body {
     justify-content: center;
     align-items: center;
     z-index: 10;
+    opacity: 0;
+    transition: opacity 1s ease-out;
+    border-radius: 10px;
+}
+
+.mask-overlay.show {
     opacity: 1;
-    transition: opacity 1s ease-out; /* Smooth transition for fading out */
 }
 
 .swipe-hint {
@@ -730,7 +742,7 @@ body {
     background-color: #fff;
     margin-top: 10px;
     position: relative;
-    animation: swipeLeft 1.5s linear infinite; /* Continuous swipe animation */
+    animation: swipeLeft 1.5s linear infinite;
 }
 
 @keyframes swipeLeft {
@@ -738,7 +750,7 @@ body {
         right: -30px;
     }
     100% {
-        right:10px;
+        right: 10px;
     }
 }
 
@@ -768,3 +780,58 @@ body {
   display: none;
    }
   }
+  
+  .loading-page {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: linear-gradient(to right, #000000, #101010, #000000);
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+    justify-content: center;
+    color: #191654;
+    z-index: 1000;
+    opacity: 1;
+    transition: opacity 1.5s ease; /* 平滑過渡效果 */
+}
+
+#svg {
+    height: 150px;
+    width: 150px;
+    stroke: white;
+    fill-opacity: 0;
+    stroke-width: 3px;
+    stroke-dasharray: 4500;
+    animation: draw 3s ease;
+}
+
+@keyframes draw {
+    0% {
+        stroke-dashoffset: 4500;
+    }
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+.name-container {
+    height: 30px;
+    overflow: hidden;
+}
+
+.logo-name {
+    color: #fff;
+    font-size: 20px;
+    letter-spacing: 12px;
+    text-transform: uppercase;
+    margin-left: 20px;
+    font-weight: bolder;
+}
+
+#loading-page, .logo-name {
+    transition: none;
+}
