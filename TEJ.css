@@ -635,6 +635,7 @@ body {
     
     .banner p {
         font-size: 28px;
+      white-space: normal;
     }
 
     .back-to-top:hover {
