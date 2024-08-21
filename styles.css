@@ -66,6 +66,7 @@ header a {
 .active-link {
     color: #000000;
     font-weight:bolder;
+    text-decoration: line-through;
   }
 
 #menu-button {
@@ -277,9 +278,9 @@ h3 {
         top: 45px;
         right: 0;
         background-color: rgba(255, 255, 255, 0.9);
-        width: 100%;
+        width: 90%;
         text-align: right;
-        padding: 0;
+        margin-right: 45px;
         transition: max-height 0.5s ease-out; /* 添加过渡效果 */
         overflow: hidden; /* 隐藏超出部分 */
         max-height: 0; /* 初始最大高度 */
@@ -296,8 +297,16 @@ h3 {
         font-size: 12px;
         text-align: right;
     }
-    
-    /* 菜单按钮的样式 */
+
+    header li :hover{
+        background-color: rgba(100, 100, 100, 0.9);
+    }
+
+    .active-link {
+        text-align: right;
+        display: block; /* Ensure it takes up the full width */
+    }
+
     #menu-button {
         display: block;
         background-color: rgba(0, 0, 0, 0);
@@ -436,4 +445,58 @@ h3 {
     .toggle-button {
         display: none; /* 隐藏展开按钮 */
     }
+}
+.loading-page {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: linear-gradient(to right, #000000, #101010, #000000);
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+    justify-content: center;
+    color: #191654;
+    z-index: 1000;
+    opacity: 1;
+    transition: opacity 1.5s ease; /* 平滑過渡效果 */
+}
+
+#svg {
+    height: 150px;
+    width: 150px;
+    stroke: white;
+    fill-opacity: 0;
+    stroke-width: 3px;
+    stroke-dasharray: 4500;
+    animation: draw 3s ease;
+}
+
+@keyframes draw {
+    0% {
+        stroke-dashoffset: 4500;
+    }
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+.name-container {
+    height: 30px;
+    overflow: hidden;
+}
+
+.logo-name {
+    color: #fff;
+    font-size: 20px;
+    letter-spacing: 12px;
+    text-transform: uppercase;
+    margin-left: 20px;
+    font-weight: bolder;
+}
+
+#loading-page, .logo-name {
+    transition: none;
 }
