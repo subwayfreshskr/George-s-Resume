@@ -7,8 +7,13 @@
     <link rel="stylesheet" href="uiux.css">
 </head>
 <body>
-    <div class="loading-overlay" id="loading-overlay">
-        <div class="spinner"></div>
+    <div class="loading-page" id="loading-page">
+        <svg id="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+        <path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/>
+    </svg>
+        <div class="name-container">
+            <div class="logo-name">XIE ZHOU QI</div>
+        </div>
     </div>
     <header>
         <nav aria-label="主選單" role="navigation">
@@ -52,7 +57,7 @@
             <h2>TQuant Lab</h2>
             <p>網站面向的分析和產品規劃，優化多樣資料的顯示，調整會員以及購買系統，
             提升使用者瀏覽和購買的意願，更有效的為目標族群服務。</p>
-                <a href="#"><span>了解更多 ➜</span></a>
+                <a href="tq.html"><span>了解更多 ➜</span></a>
         </div>
         <div class="case">
             <div class="image-container">
@@ -99,5 +104,9 @@
     </section>
     <button id="back-to-top" class="back-to-top">&#8679;</button>
     <script src="uiux.js"></script>
+    <script src="loading.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"
+    integrity="sha512-gmwBmiTVER57N3jYS3LinA9eb8aHrJua5iQD7yqYCKa5x6Jjc7VDVaEA0je0Lu0bP9j7tEjV3+1qUm6loO99Kw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </body>
 </html>
