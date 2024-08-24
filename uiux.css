@@ -149,8 +149,10 @@ header a {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 50px;
-    max-width: 1200px;
+    max-width: 100%;
     margin: 50px auto;
+    justify-items: center;
+    align-items: center;
 }
 
 .case {
