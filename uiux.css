@@ -154,12 +154,16 @@ header a {
 }
 
 .case {
-    max-width: 370px; 
+   display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    max-width: 370px;
     background-color: #ffffff;
     border-radius: 10px;
     overflow: hidden;
     position: relative;
-    border:1px solid #ffffff;
+    border: 1px solid #ffffff;
+    height: 100%;
 }
 
 .image-container {
@@ -200,7 +204,7 @@ header a {
 
 .case a {
     display: block;
-    padding:20px;
+    padding: 20px;
     text-align: right;
     color: #101010;
     font-size: 12px;
@@ -209,6 +213,7 @@ header a {
     position: relative;
     overflow: hidden;
     transition: color 0.3s ease;
+    margin-top: auto;
 }
 
 .case a::before {
