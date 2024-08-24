@@ -351,9 +351,10 @@ header a {
     }
 
     .case-studies {
-       max-width: 100%;
-       padding: 20px;
-       margin-bottom: 30px;
+      max-width: 100%;
+       padding: 0px 50px;
+        display: flex;
+        flex-direction: column;
     }
 
     .case {
