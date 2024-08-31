@@ -779,6 +779,11 @@ body {
   .scroll-icon {
   display: none;
    }
+
+      .front {
+    transform: none;
+  }
+    
   }
   
   .loading-page {
