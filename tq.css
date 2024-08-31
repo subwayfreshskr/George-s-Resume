@@ -553,7 +553,7 @@ body {
   cursor: pointer;
 }
 
-.cube a{
+.cube a.back {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -563,7 +563,7 @@ body {
   width: 200px;
   height: 50px;
   text-align: center;
-  font-weight:bolder ;
+  font-weight: bolder;
 }
 
 .cube:hover {
@@ -580,7 +580,7 @@ body {
   font-size: 18px;
   font-weight: bold;
   backface-visibility: hidden;
-  border:1px solid #101010
+  border: 1px solid #101010;
 }
 
 .front {
@@ -631,11 +631,11 @@ body {
   }
   
   .banner h1 {
-      font-size: 14px;
+      font-size: 20px;
   }
   
   .banner p {
-      font-size: 20px;
+      font-size: 28px;
   }
 
   .back-to-top:hover {
@@ -780,11 +780,6 @@ body {
 .scroll-icon {
 display: none;
  }
-
-    .front {
-    transform: none;
-  }
-  
 }
 
   .loading-page {
