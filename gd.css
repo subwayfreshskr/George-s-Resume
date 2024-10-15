@@ -349,6 +349,7 @@ header a {
 @media (max-width: 768px) {
     header {
         height: 40px; /* 调整头部的高度 */
+
     }
 
     header ul {
@@ -358,12 +359,13 @@ header a {
         top: 45px;
         right: 0;
         background-color: rgba(255, 255, 255, 0.9);
-        width: 90%;
+        width: 100%;
+        padding:10px;
         text-align: right;
-        margin-right: 45px;
-        transition: max-height 0.5s ease-out; /* 添加过渡效果 */
-        overflow: hidden; /* 隐藏超出部分 */
-        max-height: 0; /* 初始最大高度 */
+        transition: max-height 0.5s ease-out;
+        overflow: hidden;
+        max-height: 0;
+        z-index: 10000;
     }
     
     header ul.show {
@@ -372,6 +374,7 @@ header a {
     }
     
     header li {
+        display: flex;
         margin: 10px 0;
         padding-left: 15px;
         font-size: 12px;
@@ -384,7 +387,7 @@ header a {
 
     .active-link {
         text-align: right;
-        display: block; /* Ensure it takes up the full width */
+        width: fit-content;
     }
     
     /* 菜单按钮的样式 */
