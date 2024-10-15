@@ -413,6 +413,7 @@ h3 {
 
     .left-block {
         margin-top: 20px;
+         position: static;
     }
 
     h3 {
